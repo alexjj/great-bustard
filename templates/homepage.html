@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ page.content }}
+
+{% if SOCIAL %}
+<h3>Elsewhere</h3>
+{% for name, link in SOCIAL %}
+<a href="{{ link }}">{{ name }}</a><br>
+{% endfor %}
+<br>
+{% endif %}
+
+{% if articles %}
+  <hr>
+  <h3>Most recent <a href="/{{ INDEX_URL }} target="_blank">posts</a>:</h3>
+  
+  <ol id="post-list">
+  {% for article in articles %}
+    {% if loop.index0 < RECENT_ARTICLES_COUNT %}
+    <li><article id="hentry">
+    <h3 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+    <small><i><time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time></i></small>
+    <div class="entry-content"> {{ article.summary }} </div>
+    </article></li>
+    
+
+    {% endif %}
+  {% endfor %}
+  </ol>
+{% endif %}
+
+{% endblock %}

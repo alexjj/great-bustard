@@ -32,10 +32,11 @@
         {% endblock head %}
 </head>
 
-<body id="index" class="home">
+<body>
         <header id="banner" class="body">
-                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-        </header><!-- /#banner -->
+        <a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+	<hr>
+        </header>
         <nav id="menu"><ul>
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
@@ -50,14 +51,12 @@
             <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
           {% endfor %}
         {% endif %}
-        </ul></nav><!-- /#menu -->
+        </ul></nav>
         {% block content %}
         {% endblock %}
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+        <hr>
+<footer id="footer" class="body">
+     | (• ◡•)| <a target="blank" href="https://github.com/alexjj/alexjj.com" title="Source" style="color:red">♥</a> (❍ᴥ❍ʋ)<small>
+        </footer>
 </body>
 </html>
