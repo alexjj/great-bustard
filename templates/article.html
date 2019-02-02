@@ -10,7 +10,7 @@
   {% if translations.entry_hreflang(article) %}
     {{ translations.entry_hreflang(article) }}
   {% endif %}
-
+  <meta property="og:title" content="{{ article.title }}" />
   {% if article.description %}
     <meta name="description" content="{{article.description}}" />
   {% endif %}
